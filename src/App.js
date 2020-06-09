@@ -1,12 +1,15 @@
 import React from 'react';
+import HomePage from './pages/Home';
+import Sidebar from './components/Sidebar'
 
-import './App.css';
-import Layout from './components/Layout/Layout';
 
 function App() {
   return (
-    <Layout />
-  );
+    <div>
+      <HomePage />
+      <Sidebar />
+    </div>
+    )
 }
 
 export default App;
