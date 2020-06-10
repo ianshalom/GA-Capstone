@@ -1,17 +1,23 @@
 
+
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <nav className="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+    <nav 
+    //If props id is undefined, it will go with the empty string. 
+      id={props.id || ''}
+      className="navbar is-fresh is-transparent no-shadow" 
+      role="navigation" 
+      aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://cssninja.io">
+          <Link to="/" className="navbar-item" href="https://cssninja.io">
              <div className="title">wizer</div>
-          </a>
+          </Link>
 
-          <a className="navbar-item is-hidden-desktop is-hidden-tablet">
+          <a href="#" className="navbar-item is-hidden-desktop is-hidden-tablet">
             <div id="menu-icon-wrapper" className="menu-icon-wrapper" style={{visibility: 'visible'}}>
               <svg width="1000px" height="1000px">
                   <path className="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
@@ -44,12 +50,15 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-end">
-            <a href="#" className="navbar-item is-secondary">
-                Features
-            </a>
-            <a href="#" className="navbar-item is-secondary">
-                Pricing
-            </a>
+            <Link to="/" className="navbar-item is-secondary">
+                Home
+            </Link>
+            <Link to="/services" className="navbar-item is-secondary">
+                Services
+            </Link>
+             <Link to="/faq" className="navbar-item is-secondary">
+                FAQ
+            </Link>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">
                   Dropdown
@@ -67,14 +76,14 @@ const Navbar = () => {
                 </a>
               </div>
             </div>
-            <a href="#" className="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+            <Link to="/login" className="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
                 Log in
-            </a>
-            <a className="navbar-item">
+            </Link>
+            <Link to="/register" className="navbar-item">
               <span className="button signup-button rounded secondary-btn raised">
                   Sign up
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
