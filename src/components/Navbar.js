@@ -17,7 +17,7 @@ const Navbar = (props) => {
              <div className="title">wizer</div>
           </Link>
 
-          <a href="#" className="navbar-item is-hidden-desktop is-hidden-tablet">
+          <button className="navbar-item is-hidden-desktop is-hidden-tablet">
             <div id="menu-icon-wrapper" className="menu-icon-wrapper" style={{visibility: 'visible'}}>
               <svg width="1000px" height="1000px">
                   <path className="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
@@ -26,7 +26,7 @@ const Navbar = (props) => {
               </svg>
               <button id="menu-icon-trigger" className="menu-icon-trigger"></button>
             </div>
-          </a>
+          </button>
 
           <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
               <span aria-hidden="true"></span>

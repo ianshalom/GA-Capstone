@@ -5,9 +5,9 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar-header">
         <div className="sidebar-title">Menu</div>
-        <a className="sidebar-close">
+        <button className="sidebar-close">
           <i className="fa fa-times-circle"></i>
-        </a>
+        </button>
       </div>
       <div className="inner">
         <ul className="sidebar-menu">
