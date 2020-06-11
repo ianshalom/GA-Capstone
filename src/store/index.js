@@ -17,16 +17,13 @@ const logger = store => {
   }
 }
 
-const promise = store => {
 
-  return dispatch => {
-      return (action) => {
-      if (typeof action.then === 'function') {
-        return action.then(dispatch)
-      }
-      return dispatch(action)
+const thunk = store => nextDispatch => action => {
+    if (typeof action === 'function') {
+      return action(store.dispatch)
+    } else {
+      return nextDispatch(action)
     }
-  }
 }
 
 const applyMiddlewares = (store, middlewares) => {
@@ -37,7 +34,7 @@ const applyMiddlewares = (store, middlewares) => {
 
 
  const initStore = () => {
-  const middlewares = [promise]
+  const middlewares = [thunk]
 
       
 
