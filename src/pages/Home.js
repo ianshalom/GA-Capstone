@@ -16,7 +16,7 @@ class Home extends React.Component {
 	}
 	componentDidMount () {
     //fetch services is an action creator and returns an action, a simple object. 
-    this.props.dispatch(fetchServices())
+    this.props.fetchServices()
 
 	}
 
@@ -40,7 +40,7 @@ class Home extends React.Component {
             </div>
 
             <div className="content-wrapper">
-              <div className="columns">
+              <div className="columns is-multiline">
              	{ this.renderServices(services)}
               </div>
             </div>
@@ -53,4 +53,4 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({services: state.services.all})
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, {fetchServices})(Home);

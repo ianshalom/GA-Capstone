@@ -1,6 +1,6 @@
 
 
-import { FETCH_SERVICES_SUCCESS } from '../types';
+import { FETCH_SERVICES_SUCCESS } from '../constants';
 import { combineReducers } from 'redux'
 
 

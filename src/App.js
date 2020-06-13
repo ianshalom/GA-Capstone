@@ -2,55 +2,39 @@
 
 import React from 'react';
 import { Provider } from 'react-redux'
+import { ToastProvider } from 'react-toast-notifications'
 import initStore from './store'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import HomePage from './pages/Home';
-import FaqPage from './pages/Faq';
-import ProfilePage from './pages/Profile';
-import ServicesPage from './pages/Services';
-import ServiceDetailPage from './pages/ServiceDetail'
-import LoginPage from './pages/Login';
-import RegisterPage from './pages/Register';
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar'
+import { BrowserRouter as Router } from 'react-router-dom';
+import ServiceApp from './ServiceApp';
+import { onAuthStateChanged, storeAuthUser, resetAuthState } from './actions/index';
 
 const store = initStore()
 
 
-function App() {
-  return (
+class App extends React.Component {
+
+componentDidMount() {
+	this.unsubscribeAuth = onAuthStateChanged(authUser => {
+    store.dispatch(resetAuthState())
+		store.dispatch(storeAuthUser(authUser))
+	})
+}
+
+componentWillUnmount() {
+	this.unsubscribeAuth();
+}
+
+render() {
+	return (
     <Provider store={store}>
+    <ToastProvider>
       <Router>
-         <Navbar />
-         <Navbar id="navbar-clone" />
-         <Sidebar />
-	      <Switch>
-		      <Route exact path="/">
-		      	<HomePage />
-		      </Route>
-		      <Route exact path="/services/:id">
-		      	<ServiceDetailPage />
-		      </Route>
-		   		<Route exact path="/services">
-		      	<ServicesPage />
-		      </Route>
-		       <Route exact path="/faq">
-		      	<FaqPage />
-		      </Route>
-		       <Route exact path="/profile">
-		      	<ProfilePage />
-		      </Route>
-		      <Route exact path="/login">
-		      	<LoginPage />
-		      </Route>
-		      <Route exact path="/register">
-		      	<RegisterPage />
-		      </Route>
-	      </Switch>
+        <ServiceApp />
       </Router>
+      </ToastProvider>
     </Provider>
     );
+  }
 }
 
 export default App;

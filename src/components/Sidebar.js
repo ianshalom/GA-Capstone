@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -12,29 +12,29 @@ const Sidebar = () => {
       <div className="inner">
         <ul className="sidebar-menu">
           <li><span className="nav-section-title"></span></li>
-          <li className="have-children"><a href="#">User</a>
+          <li className="have-children"><Link to="/" >User</Link>
             <ul>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Account</a></li>
-              <li><a href="#">Settings</a></li>
+              <li><Link to="/" >Profile</Link></li>
+              <li><Link to="/" >Account</Link></li>
+              <li><Link to="/" >Settings</Link></li>
             </ul>
           </li>
-          <li className="have-children"><a href="#">Messages</a>
+          <li className="have-children"><Link to="/" >Messages</Link>
             <ul>
-              <li><a href="#">Inbox</a></li>
-              <li><a href="#">Compose</a></li>
+              <li><Link to="/" >Inbox</Link></li>
+              <li><Link to="/" >Compose</Link></li>
             </ul>
           </li>
-          <li className="have-children"><a href="#">Images</a>
+          <li className="have-children"><Link to="/" >Images</Link>
             <ul>
-              <li><a href="#">Library</a></li>
-              <li><a href="#">Upload</a></li>
+              <li><Link to="/" >Library</Link></li>
+              <li><Link to="/" >Upload</Link></li>
             </ul>
           </li>
-          <li className="have-children"><a href="#">Settings</a>
+          <li className="have-children"><Link to="/" >Settings</Link>
             <ul>
-              <li><a href="#">User settings</a></li>
-              <li><a href="#">App settings</a></li>
+              <li><Link to="/" >User settings</Link></li>
+              <li><Link to="/" >App settings</Link></li>
             </ul>
           </li>
         </ul>

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions/'
+import Modal from '../components/Modal';
+import ApplicationModal from '../components/ApplicationModal';
 
 import Spinner from '../components/Spinner'
 
@@ -20,9 +22,9 @@ const ServiceDetail = props => {
 
 		//Display spinner when loading page. If you are fetching and there is no service id, means there is no data fetched, meaning spinner will load until service id is present.
 
-		if (id !== service.id) { return <Spinner /> } // Previous data is still stored even as new page is clicked. 
+		// Previous data is still stored even as new page is clicked. 
 
-		if (isFetching && !service.id) {
+		if (isFetching || id !== service.id) {
 			return <Spinner />
 		}
 		
@@ -44,11 +46,9 @@ const ServiceDetail = props => {
 		                  {service.description}
 		              </h2>
 		              <br />
-		              <p className="has-text-centered">
-		                <button className="button is-medium is-info is-outlined">
-		                  Learn more
-		                </button>
-		              </p>
+		              <div className="has-text-centered">
+		              <ApplicationModal service={service} />
+		              </div>
 		            </div>
 		          </div>
 		        </div>

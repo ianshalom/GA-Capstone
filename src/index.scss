@@ -31,6 +31,22 @@ $section-grey: #fbfbfb;
 
 
 
+
+/* Create Service */
+.create-page {
+  margin-top: 70px;
+  margin-bottom: 70px;
+
+  .form-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .field.is-grouped {
+    margin-top: 20px;
+  }
+}
+
 /* ==========================================================================
 General Keyframes animations
 ========================================================================== */
@@ -181,8 +197,8 @@ Classes to change the feel of bulma buttons
 .button {
     &.primary-btn {
         outline: none;
-        border-color: $primary;
-        background-color: $primary;
+        border-color: #654062;
+        background-color: #654062;
         color: $white;
         transition: all 0.5s;
         &:hover {
@@ -198,7 +214,7 @@ Classes to change the feel of bulma buttons
             background-color: transparent;
             &:hover {
                 color: $white;
-                background-color: $primary;
+                background-color: #654062;
             }
         }
     }
@@ -227,8 +243,8 @@ Classes to change the feel of bulma buttons
     }
     &.button.accent-btn {
         outline: none;
-        border-color: $accent;
-        background-color: $accent;
+        border-color: #654062;
+        background-color: #654062;
         color: $white;
         transition: all 0.5s;
         &:hover {
@@ -249,6 +265,43 @@ Classes to change the feel of bulma buttons
         }
     }
 }
+
+//AUTH
+
+.auth-page {
+  .hero.is-success {
+    background: #F2F6FA;
+  }
+  .hero .nav, .hero.is-success .nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .box {
+    margin-top: 5rem;
+  }
+  .avatar {
+    margin-top: -70px;
+    padding-bottom: 20px;
+  }
+  .avatar img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  }
+  input {
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+  }
+  p.subtitle {
+    padding-top: 1rem;
+  }
+}
+
+// AUTH END
 
 
 /*! _cards.scss v1.0.0 | Commercial License | built on top of bulma.io/Bulmax */
@@ -418,7 +471,7 @@ div.nav-item.is-drop:hover .dropContain .dropOut {
 
 div.nav-item.is-drop:hover, div.nav-item.is-drop:hover a, {
     border-bottom: 1px solid transparent !important;
-    color: $secondary;
+    color: #654062;
 }
 
 div.nav-item.is-drop:hover .dropContain {
@@ -673,7 +726,7 @@ Navbar
         color: $muted-grey;
         &.is-secondary {
             &:hover {
-                color: $secondary !important;
+                color: #654062 !important;
             }
         }
         &.has-dropdown {
@@ -692,16 +745,16 @@ Navbar
                 top: 3.4rem;
                 min-width: 220px;
                 margin-top: 4px;
-                border-top-color: $secondary;
+                border-top-color: #654062;
                 .navbar-item {
                     padding: 10px 20px;
                 }
             }
             &:hover {
                 .navbar-link {
-                    color: $secondary;
+                    color: #654062;
                     &:after {
-                        border-color: $secondary;
+                        border-color: #654062;
                     }
                 }
             }

@@ -2,11 +2,13 @@
 import { combineReducers } from 'redux'
 import services from './services';
 import selectedService from './selectedService'
+import auth from './auth';
 
 
 const wizerApp = combineReducers({
 	services,
-	selectedService
+	selectedService,
+	auth
 })
 
 export default wizerApp;
