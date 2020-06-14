@@ -18,7 +18,7 @@ const ServiceDetail = props => {
 		props.dispatch(fetchServiceById(id))
 	}, [id, dispatch])
 		
-		const { service } = props;
+		const { service, auth } = props;
 
 		//Display spinner when loading page. If you are fetching and there is no service id, means there is no data fetched, meaning spinner will load until service id is present.
 
@@ -47,7 +47,9 @@ const ServiceDetail = props => {
 		              </h2>
 		              <br />
 		              <div className="has-text-centered">
-		              <ApplicationModal service={service} />
+		              <ApplicationModal 
+		              	auth={auth}
+		              	service={service} />
 		              </div>
 		            </div>
 		          </div>
@@ -58,10 +60,11 @@ const ServiceDetail = props => {
 		  )
 		}
 
-		const mapStateToProps = ({selectedService}) => (
+		const mapStateToProps = ({selectedService, auth}) => (
 		{
 			service: selectedService.item,
-			isFetching: selectedService.isFetching
+			isFetching: selectedService.isFetching,
+			auth
 		})
 
 export default connect(mapStateToProps)(ServiceDetail);

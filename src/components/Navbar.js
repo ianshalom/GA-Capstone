@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const { user, isAuth } = props.auth
   const { logout, loadFresh } = props
 
-
+  const test = user || [];
   useEffect(() => {
     if(!loadFresh) { return }
     const script = document.createElement('script')
@@ -66,9 +66,9 @@ const Navbar = (props) => {
           </div>
 
           <div className="navbar-end">
-          { user && 
+          { user.userProfile && 
             <div className="navbar-item is-secondary user-welcome">
-            { `Welcome ${user.userProfile.fullName}`}
+            {`Welcome ${user.userProfile.fullName}`}
             </div>
             }
             <Link to="/" className="navbar-item is-secondary">
@@ -92,6 +92,12 @@ const Navbar = (props) => {
                 </Link>
                 <Link to="/services/me" className="navbar-item">
                     What's yours
+                </Link>
+                <Link to="/offers/sent" className="navbar-item">
+                    Sent Offers
+                </Link>
+                <Link to="/offers/received" className="navbar-item">
+                    Received Offers
                 </Link>
                
               </div>

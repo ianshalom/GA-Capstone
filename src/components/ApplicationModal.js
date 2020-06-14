@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
+import { createRef, createOffer } from '../actions'
+import { useToasts } from 'react-toast-notifications'
 
+const ApplicationModel = ({service, auth}) => {
 
-const ApplicationModel = ({service}) => {
-
+	const { addToast } = useToasts()
 	const [ offer, setOffer ] = useState({
 		fromUser: '',
 		toUser: '',
@@ -24,10 +26,25 @@ const ApplicationModel = ({service}) => {
 		setOffer({...offer, [name]: value})
 	}
 
-	const handleSubmit = () => {
-		alert(JSON.stringify(offer));
+	const handleSubmit = (closeModal) => {
+		const offerCopy = { ...offer }
+
+		offerCopy.fromUser = createRef('profiles', auth.user.uid)
+		offerCopy.toUser = createRef('profiles', service.user.uid)
+		offerCopy.service = createRef('services', service.id)
+		offerCopy.time = parseInt(offer.time, 10)
+
+		createOffer(offerCopy)
+		.then(_ => {
+			closeModal()
+			addToast("Your offer was successfully placed.", { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 })
+		}, (error) => {
+			console.log(error)
+		})
+
 	}
 
+console.log(service.user.userProfile.fullName)
 	return (
 
 					<Modal 
@@ -59,7 +76,7 @@ const ApplicationModel = ({service}) => {
 						</div>
 						<div className="service-price has-text-centered">
 						  <div className="service-price-title">
-						    Uppon acceptance "Filip Jerga" will charge you:
+						  {service.user.userProfile && `Upon acceptance ${service.user.userProfile.fullName} will charge you:`}  
 						  </div>
 						  <div className="service-price-value">
 						    <h1 className="title">{offer.price}</h1>
