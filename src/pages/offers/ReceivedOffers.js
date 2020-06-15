@@ -13,6 +13,23 @@ class ReceivedOffers extends React.Component {
     }
 
 
+    acceptOffer = offer => {
+      console.log(`Accepting ${(offer)}`)
+    }
+
+    declineOffer = offer => {
+     
+      console.log(`Declining ${(offer)}`)
+    }
+
+    statusClass = status => {
+      if(status === 'pending') return 'is-warning'
+      if(status === 'accepted') return 'is-success'
+      if(status === 'declined') return 'is-danger'
+    }
+  
+
+
     render(){
       const { offers } = this.props
         return(
@@ -28,7 +45,7 @@ class ReceivedOffers extends React.Component {
                                   noButton
                                   className="offer-card"
                                   service={o.service}>
-                                  <div className="tag is-large">
+                                  <div className={`tag is-large ${this.statusClass(o.status)}`}>
                                     {o.status}
                                   </div>
                                   <hr />
@@ -46,6 +63,14 @@ class ReceivedOffers extends React.Component {
                                       <span className="label">Time:</span> {o.time} hours
                                     </div>
                                   </div>
+                                  { o.status === 'pending' &&
+                                    <div>
+                                    <hr />
+                                    <button onClick={() => this.acceptOffer(o)} className="button is-success s-m-r">Accept</button>
+                                    <button onClick={() => this.declineOffer(o)} className="button is-danger">Decline</button>
+                                  </div>
+                                  }
+                                  
                                 </ServiceItem>
                                </div>  
                            
