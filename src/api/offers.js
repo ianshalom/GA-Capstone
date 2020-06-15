@@ -20,3 +20,11 @@ export const fetchReceivedOffers = userId => {
 	.get()
 	.then(snapshot => snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
 }
+
+export const changeOfferStatus = (offerId, status) => 
+	db.collection('offers')
+		.doc(offerId)
+		.update({status})
+
+
+		

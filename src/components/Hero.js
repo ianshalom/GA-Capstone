@@ -12,11 +12,7 @@ const Hero = () =>
 	                      Learn, Grow, Connect
 	                  </h1>
 	                  <h2 className="subtitle is-5 is-muted">Put your free time to good use. Let's grow wizer.</h2>
-	                  <p>
-	                    <button className="button cta rounded primary-btn raised">
-	                        Find a course
-	                    </button>
-	                  </p>
+	                  
 	                </div>
 	                <div className="column is-5 is-offset-1">
 	                  <figure className="image is-4by3">

@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+
 
 //Allows user registration/authentication with firebase.
 

@@ -1,5 +1,9 @@
+// eslint-disable-next-line
+// jsx-a11y/anchor-has-content
+
 import {  SET_AUTH_USER, RESET_AUTH_STATE} from '../constants';
 import * as api from '../api/index';
+
 
 
 
@@ -15,8 +19,8 @@ export const storeAuthUser = authUser => dispatch => {
 	if(authUser) {
 		return api
 			.getUserProfile(authUser.uid)
-			.then(userWithProfile => {
-				//Dispatch action to change auth state
+			.then((userWithProfile) => {
+				
 				dispatch({user: userWithProfile, type: SET_AUTH_USER})
 				return userWithProfile
 			})

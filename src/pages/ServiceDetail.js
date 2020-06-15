@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { fetchServiceById } from '../actions/'
-import Modal from '../components/Modal';
+
 import ApplicationModal from '../components/ApplicationModal';
 
 import Spinner from '../components/Spinner'
@@ -10,7 +10,7 @@ import Spinner from '../components/Spinner'
 const ServiceDetail = props => {
 	//{ id } is defined as the placeholder in App.js as part of the serviceDetail page path.
 	const { id } = useParams();
-	const { dispatch, isFetching } = props;
+	const { dispatch, isFetching} = props;
 
 	useEffect(() => {
 		// dispatch(resetPreviousService())

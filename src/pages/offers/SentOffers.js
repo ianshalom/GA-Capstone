@@ -1,8 +1,10 @@
 import React from 'react'
 import withAuthorization from '../../components/hoc/withAuthorization'
 import ServiceItem from '../../service/ServiceItem'
-import { fetchSentOffers } from '../../actions'
 import { connect } from 'react-redux';
+import { newMessage, newCollaboration } from '../../helpers/offers'
+import { fetchSentOffers, collaborate } from '../../actions'
+
 
 class SentOffers extends React.Component {
 
@@ -11,6 +13,26 @@ class SentOffers extends React.Component {
       this.props.dispatch(fetchSentOffers(auth.user.uid))
     }
 
+    // createCollaboration = offer => {
+    //   const { auth: { user } } = this.props
+      
+    //   const collaboration = newCollaboration({offer, fromUser: user})
+    //   const message = newMessage({offer, fromUser: user})
+
+    //   collaborate({collaboration, message})
+    //   .then(_ => alert('Collaboration has been created'))
+
+    // }
+
+
+     // { o.status === 'accepted' &&
+     //                                <div>
+     //                                <hr />
+     //                                <button 
+     //                                  onClick={() => this.createCollaboration(o)}
+     //                                  className="button is-success">Collaborate</button>
+     //                              </div>
+     //                              }
   
     render(){
       const { offers } = this.props
@@ -45,6 +67,8 @@ class SentOffers extends React.Component {
                                       <span className="label">Time:</span> {o.time} hours
                                     </div>
                                   </div>
+                                 
+                                  
                                 </ServiceItem>
                                </div>  
                            

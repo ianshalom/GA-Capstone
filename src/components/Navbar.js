@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const { user, isAuth } = props.auth
   const { logout, loadFresh } = props
 
-  const test = user || [];
+
   useEffect(() => {
     if(!loadFresh) { return }
     const script = document.createElement('script')
