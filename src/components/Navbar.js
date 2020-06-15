@@ -74,12 +74,7 @@ const Navbar = (props) => {
             <Link to="/" className="navbar-item is-secondary">
                 Home
             </Link>
-            <Link to="/services" className="navbar-item is-secondary">
-                Services
-            </Link>
-             <Link to="/faq" className="navbar-item is-secondary">
-                FAQ
-            </Link>
+            
             { isAuth &&
             <div className="navbar-item has-dropdown is-hoverable">
               <Link to="/" className="navbar-link">

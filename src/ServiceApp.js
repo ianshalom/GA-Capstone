@@ -24,7 +24,7 @@ class ServiceApp extends React.Component {
 	         	logout={this.handleLogout}
 	         	auth={auth}
 	         	id="navbar-clone" />
-	         <Sidebar />
+	         // <Sidebar />
 	         <Routes />
 			</React.Fragment>
 
