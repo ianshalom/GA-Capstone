@@ -34,7 +34,7 @@ const { register, handleSubmit, errors, getValues } = useForm();
 		          <div className="field">
 		            <div className="control">
 		              <input 
-		              		ref={register({required: true, minLength: 10})}
+		              		ref={register({required: true, minLength: 6})}
 		              		name="fullName"
 		                    className="input is-large"
 		                    type="text"

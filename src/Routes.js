@@ -4,13 +4,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/Home';
-import FaqPage from './pages/Faq';
-import ProfilePage from './pages/Profile';
-import ServicesPage from './pages/Services';
 import ServiceDetailPage from './pages/ServiceDetail'
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
-import SecretPage from './pages/Secret';
 import UserServicesPage from './pages/services/UserServices';
 import SentOffersPage from './pages/offers/SentOffers';
 import ReceivedOffersPage from './pages/offers/ReceivedOffers';
@@ -21,10 +17,7 @@ const Routes = () => {
 			<Switch>
 			 <Route exact path="/">
 		      	<HomePage />
-		      </Route>   
-		      <Route exact path="/secret">
-		      	<SecretPage />
-		      </Route>
+		      </Route>  
 		      <Route exact path="/login">
 		      	<LoginPage />
 		      </Route>
@@ -45,12 +38,6 @@ const Routes = () => {
 		      </Route>
 		      <Route exact path="/services/:id">
 		      	<ServiceDetailPage />
-		      </Route>
-		   	<Route exact path="/services">
-		      	<ServicesPage />
-		      </Route>
-		       <Route exact path="/faq">
-		      	<FaqPage />
 		      </Route>
 		       <Route exact path="/profile">
 		      	<ProfilePage />
